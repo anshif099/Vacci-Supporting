@@ -72,7 +72,7 @@ def DBLogin(request):
             if login_obj: 
                 user_obj=user.objects.get(email=email,Password=password) 
                 request.session['USERNAME'] = user_obj.email 
-                template = loader.get_template("hello/index.html") 
+                template = loader.get_template("hello/homeindex.html") 
             else: 
                 context = {"error": "invalid user"}
                 HttpResponse(template.render(context, request)) 
@@ -123,7 +123,7 @@ def CDLogin(request):
             HttpResponse(template.render(context, request)) 
     return HttpResponse(template.render(context, request))
 def mainIndex(request):
-    return render(request,"hello/main_index.html")
+    return render(request,"hello/index.html")
 def centerhome(request):
     return render(request,"hello/center_home.html")
 def booked(request):
